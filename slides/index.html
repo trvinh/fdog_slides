@@ -4,7 +4,7 @@
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-		<title>reveal.js</title>
+		<title>python_experience</title>
 
 		<link rel="stylesheet" href="css/reveal.css">
 		<link rel="stylesheet" href="css/theme/simple.css" id=theme>
@@ -32,19 +32,60 @@
 
 				<!-- SLIDE 1 title -->
 				<section>
-					<h1>Python and (biology) data analysis</h1>
-					<img src="images/logo.png" style='float: top; border:0; box-shadow:none' height="100"/>
+					<h2>PYTHON IN</h2>
+					<h2>(BIOLOGY) DATA ANALYSIS</h2>
+					<hr>
+					<h4>14.05.2018</h4>
+					<h4>Ngoc Vinh Tran</h4>
 				</section>
 
 				<!-- SLIDE 2 introduction -->
 				<section>
-					<h5 style="color: white; background-color: #6baed6"><strong>Introduction</strong></h5>
+					<h5 style="color: white; background-color: #559951"><strong>Background</strong></h5>
 					<section>
-						<p>Phylogenetic profiles</p>
-						<img src="images/0-1_matrix_1.png" style='float: top; border:0' height=200/>
+						<p>BSc in Biotechnology</p>
+						<img src="images/011_epitope.png" style='float: top; border:0' height=200/>
 						<p>
 							<ul>
-								<li style="font-size:20px">presence/absence pattern of genes (the seed) across a set of taxa</li>
+								<li style="font-size:20px">Prediction of B cell epitope on H5N1 virus</li>
+							</ul>
+						</p>
+					</section>
+					<section>
+						<p>MSc in Bioinformatics</p>
+						<img src="images/012_pathway.png" style='float: top; border:0' height=350/>
+						<p>
+							<ul>
+								<li style="font-size:20px">Reconstruction of Actinoplanes sp. 50/110 metabolic pathways</li>
+							</ul>
+						</p>
+					</section>
+					<section>
+						<p>PhD student in Applied Bioinformatics</p>
+						<img src="images/013_phylogeny.png" style='float: top; border:0' height=400/>
+						<p>
+							<ul>
+								<li style="font-size:20px">Phylogenetic analysis of Microsporidia</li>
+							</ul>
+						</p>
+					</section>
+					<aside class="notes">
+						Oh hey, these are some notes. They'll be hidden in your presentation, but you can see them if you open the speaker notes window (hit »S« on your keyboard).
+					</aside>
+
+				</section>
+
+				<!-- SLIDE 2 introduction -->
+				<section>
+					<h5 style="color: white; background-color: #559951"><strong>Introduction</strong></h5>
+					<section>
+						<p>Phylogenetic profiles</p>
+						<img src="images/021_phyloprofile.png" style='float: top; border:0' height=200/>
+						<p>
+							<p style="font-size:20px" class="fragment roll-in">Presence/absence pattern of genes across a set of taxa</p>
+							<ul>
+								<li style="font-size:20px" class="fragment roll-in">transfer functions between genes</li>
+								<li style="font-size:20px" class="fragment roll-in">trace functional protein clusters or metabolic networks across species</li>
 							</ul>
 						</p>
 					</section>
@@ -90,75 +131,52 @@
 						</p>
 					</section>
 
+					<aside class="notes">
+						Oh hey, these are some notes. They'll be hidden in your presentation, but you can see them if you open the speaker notes window (hit »S« on your keyboard).
+					</aside>
 				</section>
 
 				<!-- SLIDE 2 introduction -->
 				<section>
-					<h5 style="color: white; background-color: #6baed6"><strong>Introduction</strong></h5>
+					<h5 style="color: white; background-color: #559951"><strong>Phylogenetic profile</strong></h5>
 					<section>
-						<div id='intro'>
-							<p>PhyloProfile tool</p>
-							<img src="images/main_plot.png" style='float: top; border:0' height=300/>
-							<p>
-								<ul>
-									<li style="font-size:20px">Shiny(R)-based</li>
-									<li style="font-size:20px"><span style="color: #FF0000">dynamically</span> visualize and explore <span style="color: #FF0000">multi-layered</span> phylogenetic profiles</li>
-									<li style="font-size:20px">provide <span style="color: #FF0000">several functions</span> for analysis phylogenetic profiles</li>
-									<li style="font-size:20px">available <a target="_blank" href="https://phyloprofile.shinyapps.io/phyloprofile/">online</a> & <a target="_blank" href="https://github.com/BIONF/phyloprofile">standalone</a></li>
-								</ul>
-							</p>
+						<div id='problem'>
+							<img src="images/021_reaction.png" style='float: top; border:0' height=100/>
 						</div>
 					</section>
-
 					<section>
-						<p>
-							<li style="font-size:20px"><span style="color: #FF0000">dynamically</span> filter & analyze profiles with different thresholds</li>
-							<img src="images/cutoff_var.png" style='float: top; border:0' height=50/>
-							<li style="font-size:20px"><span style="color: #FF0000">dynamically</span> change the resolution of the profile analysis</li>
-							<div style="width:500px; margin:0 auto;">
-								<div style="float:left; width:100 px"><img src="images/seed_taxon_2.png" style='float: top; border:0' height=150/></div>
-								<div style="float:top; width:100 px"><img src="images/subset_gene_taxa.png" style='float: top; border:0' height=150/></div>
-							</div>
-							<li style="font-size:20px"><span style="color: #FF0000">dynamically</span> change profile appearance</li>
-							<div style="width:500px; margin:0 auto;">
-								<div style="float:left; width:100 px"><img src="images/plot_appearance_01.png" style='float: top; border:0' height=100/></div>
-								<div style="float:top; width:100 px"><img src="images/plot_appearance_02.png" style='float: top; border:0' height=200/></div>
-							</div>
-						</p>
+						<img src="images/022_pathway.png" style='float: top; border:0' height=500/>
 					</section>
-
 					<section>
-						<p style="font-size:30px"><span style="color: #FF0000">Multi-layers</span></p>
-						<p style="font-size:30px">=</p>
-						<p style="font-size:30px">presence/absence pattern + two additional layers of information</p>
-						<br>
-						<p>
-							<ul>
-								<li style="font-size:20px">sequence similarity</li>
-								<li style="font-size:20px">domain architecture similarity</li>
-								<li style="font-size:20px">semantic similarities of Gene Ontology-terms</li>
-								<li style="font-size:20px">taxonomic distances</li>
-								<li style="font-size:20px">etc.</li>
-							</ul>
-						</p>
+						<img src="images/023_network.png" style='float: top; border:0' height=500/>
 					</section>
-
-					<section>
-						<p style="font-size:30px"><span style="color: #FF0000">Analysis functions</span></p>
-						<p>
-							<ul>
-								<li style="font-size:20px"><a href="#/8/1">Profile clustering</a></li>
-								<li style="font-size:20px"><a href="#/8/3">Gene age estimation</a></li>
-								<li style="font-size:20px"><a href="#/8/4">Core gene identification</a></li>
-								<li style="font-size:20px"><a href="#/8/2">Distribution analysis</a></li>
-							</ul>
-						</p>
+					<section data-gif="repeat">
+						<img src="images/024_gif.gif" style='float: top; border:0' height=500/>
 					</section>
 				</section>
 
-				<!-- SLIDE 3 input -->
+				<!-- SLIDE 3 problem -->
 				<section>
-					<h5 style="color: white; background-color: #6baed6"><strong>Input</strong></h5>
+					<h5 style="color: white; background-color: #559951"><strong>Problem</strong></h5>
+					<section>
+						<div id='problem'>
+							<img src="images/021_reaction.png" style='float: top; border:0' height=100/>
+						</div>
+					</section>
+					<section>
+						<img src="images/022_pathway.png" style='float: top; border:0' height=500/>
+					</section>
+					<section>
+						<img src="images/023_network.png" style='float: top; border:0' height=500/>
+					</section>
+					<section data-gif="repeat">
+						<img src="images/024_gif.gif" style='float: top; border:0' height=500/>
+					</section>
+				</section>
+
+				<!-- SLIDE 3 case study -->
+				<section>
+					<h5 style="color: white; background-color: #559951"><strong>Case study</strong></h5>
 					<section>
 						<div id='input'>
 							<img src="images/input_1.png" style='float: top; border:0' height=300/>
@@ -296,7 +314,7 @@
 
 				<!-- SLIDE 4 input-continue -->
 				<section>
-					<h5 style="color: white; background-color: #6baed6"><strong>Input</strong></h5>
+					<h5 style="color: white; background-color: #559951"><strong>Input</strong></h5>
 					<section>
 						<div id='input'>
 							<img src="images/input_2.png" style='float: top; border:0' height=300/>
@@ -357,7 +375,7 @@
 
 				<!-- SLIDE 5 main profile -->
 				<section>
-					<h5 style="color: white; background-color: #6baed6"><strong>Main profile</strong></h5>
+					<h5 style="color: white; background-color: #559951"><strong>Main profile</strong></h5>
 					<section>
 						<img src="images/main.png" style='float: top; border:0' max-height="60%"/>
 					</section>
@@ -395,7 +413,7 @@
 
 				<!-- SLIDE 6 detail information -->
 				<section>
-					<h5 style="color: white; background-color: #6baed6"><strong>Detail information</strong></h5>
+					<h5 style="color: white; background-color: #559951"><strong>Detail information</strong></h5>
 					<section>
 						<img src="images/detail_info_main.png" style='float: top; border:0' max-height="60%"/>
 					</section>
@@ -424,7 +442,7 @@
 
 				<!-- SLIDE 7 customized profile -->
 				<section>
-					<h5 style="color: white; background-color: #6baed6"><strong>Customized profile</strong></h5>
+					<h5 style="color: white; background-color: #559951"><strong>Customized profile</strong></h5>
 					<section>
 						<img src="images/customized_profile.png" style='float: top; border:0' height="550"/>
 					</section>
@@ -457,7 +475,7 @@
 
 				<!-- SLIDE 8 functions -->
 				<section>
-					<h5 style="color: white; background-color: #6baed6"><strong>Analysis functions</strong></h5>
+					<h5 style="color: white; background-color: #559951"><strong>Analysis functions</strong></h5>
 					<section>
 						<img src="images/function_menu.png" style='float: top; border:0' height="300"/>
 					</section>
@@ -504,7 +522,7 @@
 
 				<!-- SLIDE 9 download-->
 				<section>
-					<h5 style="color: white; background-color: #6baed6"><strong>Download filtered data</strong></h5>
+					<h5 style="color: white; background-color: #559951"><strong>Download filtered data</strong></h5>
 					<section>
 						<img src="images/download_data.png" style='float: top; border:0' height="400"/>
 						<p style="font-size:30px">filtered data & sequences from main and customized profiles</p>
@@ -514,7 +532,7 @@
 
 				<!-- SLIDE 9 more-->
 				<section>
-					<h5 style="color: white; background-color: #6baed6"><strong>Summary</strong></h5>
+					<h5 style="color: white; background-color: #559951"><strong>Summary</strong></h5>
 					<!-- <section>
 						<p style="font-size:30px">Demo video</p>
 						<iframe src="images/phyloprofile_20170712.mp4" width="960" height="540" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
