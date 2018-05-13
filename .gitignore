@@ -1,0 +1,16 @@
+rsconnect/
+
+# History files
+.Rhistory
+.Rapp.history
+
+# Session Data files
+.RData
+
+# produced vignettes
+vignettes/*.html
+vignettes/*.pdf
+
+# DS_Store
+**/.DS_Store
+slides/.DS_Store
