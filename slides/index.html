@@ -7,7 +7,7 @@
 		<title>python_experience</title>
 
 		<link rel="stylesheet" href="css/reveal.css">
-		<link rel="stylesheet" href="css/theme/simple.css" id=theme>
+		<link rel="stylesheet" href="css/theme/beige.css" id=theme>
 
 		<!-- Theme used for syntax highlighting of code -->
 		<link rel="stylesheet" href="lib/css/zenburn.css">
@@ -69,6 +69,7 @@
 							</ul>
 						</p>
 					</section>
+
 					<aside class="notes">
 						Oh hey, these are some notes. They'll be hidden in your presentation, but you can see them if you open the speaker notes window (hit »S« on your keyboard).
 					</aside>
@@ -90,45 +91,16 @@
 						</p>
 					</section>
 					<section>
-						<p>Phylogenetic profiles</p>
-						<img src="images/0-1_matrix_2.png" style='float: top; border:0' height=250/>
-						<p>
-							<ul>
-								<li style="font-size:20px">presence of ortholog <=> presence of seed's function</li>
-							</ul>
-						</p>
-						<p>
-							<ul>
-								<p style="font-size:20px">=> transfer functions between orthologs</p>
-							</ul>
-						</p>
+						<img src="images/022_logo.png" style='float: top; border:0' height=50/>
+						<p style="font-size:20px"><a target="_blank" href="https://github.com/BIONF/PhyloProfile/">https://github.com/BIONF/PhyloProfile/</a></p>
+						<img src="images/023_app.png" style='float: top; border:0' height=350/>
 					</section>
 					<section>
-						<p>Phylogenetic profiles</p>
-						<img src="images/0-1_matrix_3.png" style='float: top; border:0' height=250/>
-						<p>
-							<ul>
-								<li style="font-size:20px">similar profile <=> functionally interaction</li>
-							</ul>
-						</p>
-						<p>
-							<ul>
-								<p style="font-size:20px">=> trace functional protein clusters or metabolic networks across species</p>
-							</ul>
-						</p>
-					</section>
-					<section>
-						<p>Phylogenetic profiles</p>
-						<img src="images/0-1_matrix_3.png" style='float: top; border:0' height=250/>
-						<p>
-							<p style="font-size:20px">PROBLEM:</p>
-							<ul>
-								<li style="font-size:20px">specificity of orthology inference</li>
-								<li style="font-size:20px">orthology does not guarantee functional equivalence</li>
-							</ul>
-						</p>
-						<p style="font-size:20px">=> increase the informativeness of orthology assignemnt by using <em><span style="color: #FF0000">complementary information</span></em>
-						</p>
+						<p>Input file</p>
+						<img src="images/026_seqInput.png" style='float: top; border:0' height=250/ class="fragment roll-in">
+						<img src="images/024_orthoInput.png" style='float: top; border:0' height=250/ class="fragment roll-in">
+						<img src="images/025_annoInput.png" style='float: top; border:0' height=250/ class="fragment roll-in">
+						<img src="images/027_omaLogo.png" style='float: top; border:0' height=150 class="fragment roll-in">
 					</section>
 
 					<aside class="notes">
@@ -136,41 +108,60 @@
 					</aside>
 				</section>
 
-				<!-- SLIDE 2 introduction -->
+				<!-- SLIDE 3 method -->
 				<section>
-					<h5 style="color: white; background-color: #559951"><strong>Phylogenetic profile</strong></h5>
+					<h5 style="color: white; background-color: #559951"><strong>Method</strong></h5>
 					<section>
-						<div id='problem'>
-							<img src="images/021_reaction.png" style='float: top; border:0' height=100/>
-						</div>
+						<img src="images/031_oma1.png" style='float: top; border:0' height=250>
 					</section>
 					<section>
-						<img src="images/022_pathway.png" style='float: top; border:0' height=500/>
+						<img src="images/032_oma2.png" style='float: top; border:0' height=500>
 					</section>
 					<section>
-						<img src="images/023_network.png" style='float: top; border:0' height=500/>
+						<img src="images/033_oma3.png" style='float: top; border:0' height=500>
 					</section>
 					<section data-gif="repeat">
-						<img src="images/024_gif.gif" style='float: top; border:0' height=500/>
+						<p style="font-size:30px">Problem: large data set with 1605 proteins</p>
+						<img src="images/034_gif.gif" style='float: top; border:0' height=400/>
+					</section>
+					<section>
+						<img src="images/035_api.png" style='float: top; border:0' height=400>
 					</section>
 				</section>
 
-				<!-- SLIDE 3 problem -->
+				<!-- SLIDE 4 OMA API WITH PYTHON -->
 				<section>
-					<h5 style="color: white; background-color: #559951"><strong>Problem</strong></h5>
+					<h5 style="color: white; background-color: #559951"><strong>OMA API WITH PYTHON</strong></h5>
 					<section>
-						<div id='problem'>
-							<img src="images/021_reaction.png" style='float: top; border:0' height=100/>
-						</div>
+						<p style="font-size:20px">The Jupiter Notebook</p>
+						<p style="font-size:20px">http://jupyter.org</p>
+						<img src="images/041_install.png" style='float: top; border:0' height=200/>
 					</section>
 					<section>
-						<img src="images/022_pathway.png" style='float: top; border:0' height=500/>
+						<p style="font-size:20px">Get protein sequence</p>
+						<img src="images/042_getSeq1.png" style='float: top; border:0' width=750/>
+						<img src="images/042_getSeq2.png" style='float: top; border:0' width=600/ class="fragment roll-in">
 					</section>
 					<section>
-						<img src="images/023_network.png" style='float: top; border:0' height=500/>
+						<p style="font-size:20px">Get protein sequence</p>
+						<img src="images/042_getSeq3.png" style='float: top; border:0' width=750/>
+						<img src="images/042_getSeq4.png" style='float: top; border:0' width=750/ class="fragment roll-in">
 					</section>
-					<section data-gif="repeat">
-						<img src="images/024_gif.gif" style='float: top; border:0' height=500/>
+					<section>
+						<p style="font-size:20px">Get protein annotation</p>
+						<img src="images/043_domain1.png" style='float: top; border:0' width=700/>
+						<img src="images/043_domain2.png" style='float: top; border:0' width=700/ class="fragment roll-in">
+						<img src="images/043_domain3.png" style='float: top; border:0' width=700/ class="fragment roll-in">
+					</section>
+					<section>
+						<p style="font-size:20px">Get orthologous group</p>
+						<img src="images/044_og1.png" style='float: top; border:0' width=700/>
+						<img src="images/044_og2.png" style='float: top; border:0' width=700/ class="fragment roll-in">
+						<img src="images/044_og3.png" style='float: top; border:0' width=700/ class="fragment roll-in">
+					</section>
+					<section>
+						<p style="font-size:20px">Run for multiple seed proteins</p>
+						<img src="images/045_loop.png" style='float: top; border:0' width=800/>
 					</section>
 				</section>
 
