@@ -26,7 +26,7 @@
 			<div class="slides">
 
 				<!-- SLIDE 1 title -->
-				<section data-background-image="images/logo.png" data-background-position="10% 90%" data-background-size="10%">
+				<section data-background-image="images/00_logo.png" data-background-position="10% 90%" data-background-size="10%">
 					<h2>fDOG</h2>
 					<h2>Feature-aware Directed OrtholoG search</h2>
 					<hr>
@@ -34,35 +34,72 @@
 					<h4>Vinh Tran</h4>
 				</section>
 
-				<!-- SLIDE 2 background -->
+				<!-- SLIDE 2 orthology -->
 				<section>
-					<h5 style="color: white; background-color: #559951"><strong>Background</strong></h5>
+					<h5 style="color: white; background-color: #559951"><strong>Orthology</strong></h5>
 					<section>
-						<p>BSc in Biotechnology</p>
-						<img src="images/011_epitope.png" style='float: top; border:0' height=200/>
+						<p>Homology</p>
+						<img src="images/011_homology.png" style='float: top; border:0; box-shadow: none' height=250/>
 						<p>
 							<ul>
-								<li style="font-size:20px">Prediction of B cell epitope on H5N1 virus</li>
+								<li style="font-size:20px">Paralogs <- duplication</li>
+								<li style="font-size:20px">Orthologs <- speciation</li>
 							</ul>
 						</p>
 					</section>
 					<section>
-						<p>MSc in Bioinformatics</p>
-						<img src="images/012_pathway.png" style='float: top; border:0' height=350/>
+						<p>Applications</p>
 						<p>
-							<ul>
-								<li style="font-size:20px">Reconstruction of Actinoplanes sp. 50/110 metabolic pathways</li>
-							</ul>
+							<li style="font-size:20px; text-align:left">Phylogenetic profiles</li>
+							<img src="images/012_phyloprofile.png" style='float: top; border:0; box-shadow: none' height=150/>
+							<li style="font-size:20px; text-align:left">Gene tree reconstruction, Tree reconciliation</li>
+							<a>
+								<img src="images/013_tree_reconciliation.png" style='float: top; border:0; box-shadow: none' height=150/>
+								<div class="caption" style="font-size:7px">Mallo D. et al (2016), Syst Biol</div>
+							</a>
+							<li style="font-size:20px; text-align:left">Functions transfering</li>
+							<li style="font-size:20px; text-align:left">...</li>
 						</p>
 					</section>
 					<section>
-						<p>PhD student in Applied Bioinformatics</p>
-						<img src="images/013_phylogeny.png" style='float: top; border:0' height=400/>
+						<p>RBH-based method</p>
 						<p>
-							<ul>
-								<li style="font-size:20px">Phylogenetic analysis of Microsporidia</li>
-							</ul>
+							<a>
+								<img src="images/014_orthomcl.png" style='float: top; border:0; box-shadow: none' height=250/>
+								<div class="caption" style="font-size:7px">Chen et al. (2007), Plos ONE</div>
+							</a>
 						</p>
+					</section>
+					<aside class="notes">
+						Oh hey, these are some notes. They'll be hidden in your presentation, but you can see them if you open the speaker notes window (hit »S« on your keyboard).
+					</aside>
+
+				</section>
+
+				<!-- SLIDE 3 fdog origin -->
+				<section>
+					<h5 style="color: white; background-color: #559951"><strong>The origin of fDOG</strong></h5>
+					<section>
+						<p>HaMStR</p>
+						<img src="images/021_hamstr_paper.png" style='float: top; border:0; box-shadow: none' height=150/>
+						<p>
+							<iframe src="https://giphy.com/embed/d1E2IByItLUuONMc" width="95" height="120" frameBorder="0" class="giphy-embed"></iframe>
+						</p>
+					</section>
+					<section>
+						<p>HaMStR</p>
+						<p>
+							<iframe src="https://giphy.com/embed/HrB1MUATg24Ra" width="125" height="120" frameBorder="0" class="giphy-embed"></iframe>
+						</p>
+						<img src="images/022_hamstr_workflow.png" style='float: top; border:0; box-shadow: none' height=350/>
+					</section>
+					<section>
+						<p>fDOG</p>
+						<div style="width:500px; margin:0 auto;">
+							<div style="float:left; width:100 px"><iframe src="https://giphy.com/embed/fGCqvevBdwJdo4s1qb" width="120" height="120" frameBorder="0" class="giphy-embed" ></iframe></div>
+							+
+							<div style="float:right; width:100 px"><iframe src="https://giphy.com/embed/d1E2IByItLUuONMc" width="95" height="120" frameBorder="0" class="giphy-embed"></iframe></div>
+						</div>
 					</section>
 
 					<aside class="notes">
