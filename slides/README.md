@@ -1,2 +1,2 @@
 # presentations
-http://bionf.github.io/python_experience/slides/#/
+http://trvinh.github.io/python_experience/slides/#/
