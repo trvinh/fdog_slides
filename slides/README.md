@@ -1,2 +1,2 @@
-# presentations
-http://trvinh.github.io/python_experience/slides/#/
+# fDOG presentation
+https://trvinh.github.io/fdog_slides/slides/
