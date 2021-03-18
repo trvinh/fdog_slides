@@ -28,7 +28,7 @@
 				<!-- SLIDE 0 title -->
 				<section data-background-image="images/00_logo.png" data-background-position="10% 90%" data-background-size="10%">
 					<h2>fDOG</h2>
-					<h2>Feature-aware Directed OrtholoG search</h2>
+					<p style="font-size:40px"><strong><span style="color: #008000;">f</span>eature-aware <span style="color: #008000;">D</span>irected <span style="color: #008000;">O</span>rtholo<span style="color: #008000;">G</span> search</strong></p>
 					<hr>
 					<h4>22.03.2021</h4>
 					<h4>Vinh Tran</h4>
@@ -55,7 +55,7 @@
 							<li style="font-size:20px; text-align:left">Gene tree reconstruction, Tree reconciliation</li>
 							<a>
 								<img src="images/013_tree_reconciliation.png" style='float: top; border:0; box-shadow: none' height=150/>
-								<div class="caption" style="font-size:7px">Mallo D. et al (2016), Syst Biol</div>
+								<div class="caption" style="font-size:7px">Mallo D. et al. (2016), Syst Biol</div>
 							</a>
 							<li style="font-size:20px; text-align:left">Functions transfering</li>
 							<li style="font-size:20px; text-align:left">...</li>
@@ -131,28 +131,26 @@
 							<ul>
 								<li style="font-size:20px">78 taxa QfO 2018</li>
 								<li style="font-size:20px">Human as reference species</li>
-								<li style="font-size:20px">20.996 human proteins as seed sequences</li>
+								<li style="font-size:20px">20,996 human proteins as seed sequences</li>
 							</ul>
 						</p>
 					</section>
 					<section>
 						<p>Benchmark method</p>
-						<p><img src="images/042_benchmark_service.png" style='float: top; border:0' height=50/></p>
-						<p><img src="images/043_benchmark_service.png" style='float: top; border:0; box-shadow: none' height=350/></p>
+						<p><img src="images/042_benchmark_service.png" style='float: top; border:0' height=50/><br>
+						<img src="images/043_benchmark_service.png" style='float: top; border:0; box-shadow: none' height=350/><br>
+						</p>
 					</section>
 					<section>
-						<p>Result</p>
-						<p>
-							<ul>
-								<li style="font-size:20px">78 taxa QfO 2018</li>
-								<img src="images/044_coreSize.png" style='float: top; border:0' height=250/ class="fragment roll-in">
-								<li style="font-size:20px">Human as reference species</li>
-								<li style="font-size:20px">20.996 human proteins as seed sequences</li>
-							</ul>
-						</p>
-						<img src="images/024_orthoInput.png" style='float: top; border:0' height=250/ class="fragment roll-in">
-						<img src="images/025_annoInput.png" style='float: top; border:0' height=250/ class="fragment roll-in">
-						<img src="images/027_omaLogo.png" style='float: top; border:0' height=150 class="fragment roll-in">
+						<img src="images/044_count.png" style='float: top; border:0; box-shadow: none' height=250/>
+						<ul>
+							<li style="font-size:15px">Compared using Quest for Orthologs - Challenge 6</li>
+						</ul>
+					</section>
+					<section>
+						<img src="images/045_ec.png" style='float: top; border:0; box-shadow: none' height=200/>
+						<img src="images/046_go.png" style='float: top; border:0; box-shadow: none' height=200/ class="fragment roll-in">
+						<img src="images/047_tree.png" style='float: top; border:0; box-shadow: none' height=200/ class="fragment roll-in">
 					</section>
 
 					<aside class="notes">
@@ -170,7 +168,7 @@
 					<section>
 						<ul>
 							<li style="font-size:20px">
-								<p>Topology test with <a target="_blank" href="http://www.iqtree.org">IQ-TREE</a></p>
+								<p>Topology test using <a target="_blank" href="http://www.iqtree.org">IQ-TREE</a></p>
 								<img src="images/052_testOutput.png" style='float: top; border:0; box-shadow: none' height=150/>
 								<p style="font-size:15px"><i>(Topology rejected (-) when p-AU < 0.05, otherwise accepted (+))</i></p>
 							</li>
@@ -244,7 +242,7 @@
 						</i></p>
 					</section>
 					<section>
-						<img src="images/061_hmsruntime.png" style='float: top; border:0; box-shadow: none' height=300>
+						<img src="images/061_hmsruntime.png" style='float: top; border:0; box-shadow: none' height=250>
 						<br>
 						<p style="font-size:20px">On average, each human protein needs:</p>
 						<!-- <br> -->
@@ -271,59 +269,68 @@
 							</div>
 						</p>
 						<div class="fragment roll-in">
-							<img src="images/063_fdog_vs_fdogs.png" style='float: top; border:0; box-shadow: none' width=500/>
+							<img src="images/063_fdog_vs_fdogs.png" style='float: top; border:0; box-shadow: none' width=550/>
 							<p style="font-size:10px"><i>Runtime of 6 randomly selected proteins using 4 CPUs</i></p>
 						</div>
 					</section>
-					<section>
+					<!-- <section>
 						<p style="font-size:20px">Get orthologous group</p>
 						<img src="images/044_og1.png" style='float: top; border:0' width=700/>
 						<img src="images/044_og2.png" style='float: top; border:0' width=700/ class="fragment roll-in">
 						<img src="images/044_og3.png" style='float: top; border:0' width=700/ class="fragment roll-in">
-					</section>
+					</section> -->
 				</section>
 
 				<!-- SLIDE 6 case study -->
 				<section>
-					<h5 style="color: white; background-color: #559951"><strong>An use-case: Asgard species tree reconstruction</strong></h5>
+					<h5 style="color: white; background-color: #559951"><strong>An use-case: Where does the archaea locate</strong></h5>
 					<section>
 						<p><img src="images/071_hypotheses.png" style='float: top; border:0; box-shadow: none' height=350/></p>
+						<div class="caption" style="font-size:7px">Eme et al. (2017), Nat. Reviews Microbiology</div>
+						<ol style="list-style-type: lower-alpha;">
+							<li style="font-size:15px" class="fragment roll-in">The well-known three-domains tree of life</li>
+							<li style="font-size:15px" class="fragment roll-in">Two-domains tree of life</li>
+							<li style="font-size:15px" class="fragment roll-in">Eukaryota branches as sister to TACK superphylum</li>
+							<li style="font-size:15px" class="fragment roll-in">Eukaryota originated from within (or as sister to) the Asgard archaea</li>
+						</ol>
+						<aside class="notes">
+							A schematic representation of our understanding of the relationships between eukaryotes and archaea over the past 40 years. In a three-domains tree of life (part a), Archaea and Eukarya each represent a monophyletic group and share a unique common ancestor to the exclusion of Bacteria2,3. By contrast, a two-domain tree of life was proposed early on, and the topology of this tree has undergone several changes.When the Archaea was thought to consist of the Euryarchaeota and the Crenarchaeota phyla only (part b), several kinds of molecular evidence supported the close relationship of eukaryotes and Crenarchaeota6,7. In the early 2010s, eukaryotes were found to branch within, or as sister to, the Thaumarchaeota, Aigarchaeota, Crenarchaeota and Korarchaeota (TACK) superphylum25,28–32(part c). Phylogenomic analyses that included members of the Asgard superphylum strongly suggested that eukaryotes originated from within the Asgard archaea or that they represented a sister group to them47,52(part d). Bacteria and Eukarya are indicated in light purple and red, respectively, whereas green and blue represent archaeal lineages. Domain and superphylum rank-level names are bolded or italicized, respectively. Names of proposed phyla are in quotation marks. Note that the Diapherotrites, Parvarchaeota, Aenigmarchaeota, Nanoarchaeota and Nanohaloarchaeota (DPANN) lineage is represented as a monophyletic lineage, although this is a topic of debate
+						</aside>
+					</section>
+					<section>
+						<img src="images/072_tree_reconstruction.jpg" style='float: top; border:0; box-shadow: none' height=400/>
+					</section>
+					<section>
+						<img src="images/073_phyloprofile.png" style='float: top; border:0; box-shadow: none' height=180/>
 						<ul>
-							<li style="font-size:20px" class="fragment roll-in">Get sequence info from different databases (e.g. NCBI, PDB,...)</li>
-							<li style="font-size:20px" class="fragment roll-in">Perform sequence alignment with e.g. MAFFT, Clustal, T-Coffee, etc.</li>
-							<li style="font-size:20px" class="fragment roll-in">Analyse population genetics or phylogenetics</li>
+							<li style="font-size:15px" class="fragment roll-in">48 core genes (FAS >= 0.75, present in at least 50% taxa of each superkingdom)</li>
+							<li style="font-size:15px" class="fragment roll-in">Super-alignment of 139 sequences, 13,060 aa in length</li>
+							<li style="font-size:15px" class="fragment roll-in">Tree reconstruction using IQ-TREE</li>
+							<ul style="list-style-type: circle;" class="fragment roll-in">
+								<li style="font-size:12px"><strong>-m MFP</strong>: auto identify best fitting model with ModelFinder => LG+R9</li>
+								<li style="font-size:12px"><strong>-bb 1000</strong>: ultrafast bootstrap approximation with 1000 replicates</li>
+								<li style="font-size:12px"><strong>-bnni</strong>: reduce the risk of overestimating branch supports with UFBoot</li>
+							</ul>
 						</ul>
+						<aside class="notes">
+							LG substitution with FreeRate model
+						</aside>
 					</section>
 					<section>
-						<p><img src="images/052_plotly1.png" style='float: top; border:0' height=100/></p>
-						<p><img src="images/052_plotly2.png" style='float: top; border:0' height=500/ class="fragment roll-in"></p>
+						<p><img src="images/074_asgard_tree.jpg" style='float: top; border:0' height=600/></p>
 					</section>
 					<section>
-						<p><img src="images/053_fly.jpg" style='float: top; border:0' height=300/></p>
+						<p><img src="images/071_hypotheses.png" style='float: right; border:0; box-shadow: none' height=300/ class="fragment roll-in"></p>
+						<p><img src="images/075_asgard_tree_schematic.jpg" style='float: left; border:0; box-shadow: none' height=300/></p>
 					</section>
 				</section>
-
-				<!-- SLIDE 7 editors -->
-				<section>
-					<h5 style="color: white; background-color: #559951"><strong>Editors for Python</strong></h5>
-					<section>
-						<p style="font-size:40px">The Jupiter Notebook</p>
-						<p style="font-size:25px"><a target="_blank" href="http://jupyter.org">http://jupyter.org</a></p>
-						<img src="images/061_jupyter.png" style='float: top; border:0' height=450/>
-					</section>
-					<section>
-						<img src="images/062_atom1.png" style='float: top; border:0' height=70/>
-						<p style="font-size:25px"><a target="_blank" href="https://atom.io">https://atom.io</a></p>
-						<img src="images/062_atom2.png" style='float: top; border:0' height=400/>
-					</section>
-
-				</section>
-
 				<!-- SLIDE 8 links-->
 				<section>
-					<h5 style="color: white; background-color: #559951"><strong>Links</strong></h5>
+					<h5 style="color: white; background-color: #559951"><strong></strong></h5>
 					<section>
-						<img src="images/071_thanks.gif" style='float: top; border:0' height="150"/>
+						<img src="images/081_thanks.gif" style='float: top; border:0' height="250"/>
+						<br>
+						<img src="images/082_qrcode.png" style='float: top; border:0' height="100"/>
 					</section>
 				</section>
 
