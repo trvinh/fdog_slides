@@ -26,7 +26,7 @@
 			<div class="slides">
 
 				<!-- SLIDE 0 title -->
-				<section data-background-image="images/00_logo.png" data-background-position="10% 90%" data-background-size="10%">
+				<section data-background-image="images/00_logo.png" data-background-position="50% 90%" data-background-size="15%">
 					<h2>fDOG</h2>
 					<p style="font-size:40px"><strong><span style="color: #008000;">f</span>eature-aware <span style="color: #008000;">D</span>irected <span style="color: #008000;">O</span>rtholo<span style="color: #008000;">G</span> search</strong></p>
 					<hr>
@@ -46,6 +46,10 @@
 								<li style="font-size:20px">Orthologs <- speciation</li>
 							</ul>
 						</p>
+						<aside class="notes">
+							Homologous genes = genes that share a common ancestor<br>
+							Result of duplication event => paralogs, speciation event => orthologs
+						</aside>
 					</section>
 					<section data-transition="none">
 						<p>Applications</p>
@@ -60,6 +64,12 @@
 							<li style="font-size:20px; text-align:left">Functional annotations transfer</li>
 							<li style="font-size:20px; text-align:left">...</li>
 						</p>
+						<aside class="notes">
+							Orthologs can be used for example:<br>
+							In Phylogenetic profiles for estimating the evolutionary age of genes of interest<br>
+							For gene tree reconstruction and then tree reconciliation for identifying different events like HGT, gene loss, duplication, speciation<br>
+							Or, functional annotations transfer
+						</aside>
 					</section>
 					<section data-transition="none">
 						<p>RBH-based method</p>
@@ -69,10 +79,11 @@
 								<div class="caption" style="font-size:7px">Chen et al. (2007), Plos ONE</div>
 							</a>
 						</p>
+						<aside class="notes">
+							The basic method for ortholog prediction is reciprocal best hits<br>
+							If B1 is the best hit of A1 in species B, and A1 is again the best hit of B1 in species A => A1 and B1 are orthologs
+						</aside>
 					</section>
-					<aside class="notes">
-						Oh hey, these are some notes. They'll be hidden in your presentation, but you can see them if you open the speaker notes window (hit »S« on your keyboard).
-					</aside>
 				</section>
 
 				<!-- SLIDE 2 fdog origin -->
@@ -84,6 +95,9 @@
 						<p>
 							<img src="images/021_hamstr.gif" style='float: top; border:0; box-shadow: none' height=120/>
 						</p>
+						<aside class="notes">
+							Bases on bidirectional search<br>
+						</aside>
 					</section>
 					<section data-transition="none">
 						<p>HaMStR</p>
@@ -91,6 +105,9 @@
 							<img src="images/022_hamstr.gif" style='float: top; border:0; box-shadow: none' height=120/>
 						</p>
 						<img src="images/022_hamstr_workflow.png" style='float: top; border:0; box-shadow: none' height=350/>
+						<aside class="notes">
+							some note here
+						</aside>
 					</section>
 					<section data-transition="none">
 						<p>
@@ -105,9 +122,6 @@
 							<img src="images/023_dog.gif" style='float: top; border:0; box-shadow: none' height=180/>
 						<br>fDOG</p>
 					</section>
-					<aside class="notes">
-						Oh hey, these are some notes. They'll be hidden in your presentation, but you can see them if you open the speaker notes window (hit »S« on your keyboard).
-					</aside>
 				</section>
 
 				<!-- SLIDE 3 fdog workflow -->
@@ -122,9 +136,6 @@
 					<section data-transition="none">
 						<img src="images/033_fdog_workflow.jpg" style='float: top; border:0; box-shadow: none' height=550/>
 					</section>
-					<aside class="notes">
-						Oh hey, these are some notes. They'll be hidden in your presentation, but you can see them if you open the speaker notes window (hit »S« on your keyboard).
-					</aside>
 				</section>
 
 				<!-- SLIDE 4 comparison -->
@@ -135,7 +146,7 @@
 						<img src="images/041_qfo.png" style='float: top; border:0' height=250/>
 						<p>
 							<ul>
-								<li style="font-size:20px">78 taxa QfO 2018</li>
+								<li style="font-size:20px">78 taxa QfO 2018_04</li>
 								<li style="font-size:20px">Human as reference species</li>
 								<li style="font-size:20px">20,996 human proteins as seed sequences</li>
 							</ul>
@@ -146,6 +157,10 @@
 						<p><img src="images/042_benchmark_service.png" style='float: top; border:0' height=50/><br>
 						<img src="images/043_benchmark_service.png" style='float: top; border:0; box-shadow: none' height=350/><br>
 						</p>
+						<aside class="notes">
+							<strong>Species tree discordance test</strong>: test for the congruence of inferred orthologs with a trusted reference tree<br>
+							<strong>Gene Ontology test & EC number test</strong>: evaluated  orthology  in  terms of functional similarity by comparing the GO term and EC numbers between the query and ortholog sequences<br>
+						</aside>
 					</section>
 					<section data-transition="none">
 						<img src="images/044_count.png" style='float: top; border:0; box-shadow: none' height=250/>
@@ -157,6 +172,11 @@
 						<img src="images/045_ec.jpg" style='float: left; border:0; box-shadow: none' height=200/>
 						<img src="images/046_go.jpg" style='float: right; border:0; box-shadow: none' height=200/ class="fragment roll-in">
 						<img src="images/047_tree.jpg" style='float: bottom; border:0; box-shadow: none' height=200/ class="fragment roll-in">
+						<aside class="notes">
+							<strong>EC conservation test</strong>: x-axis is the recall and y-axis is the precision of the evaluation.
+							For the precision they used the average schlicker scores - a semantic similarity score for comparing sets of annotations such as GO terms or EC numbers<br>
+							<strong>Tree discordance test</strong>: Robinson-foulds distance: the sum of partitions of data that is implied by one tree but not by the other.
+						</aside>
 					</section>
 
 					<aside class="notes">
@@ -184,6 +204,11 @@
 							</li>
 						</ul>
 						</p>
+						<aside class="notes">
+							AU-test: Approximately Unbiased test - uses multi-scale bootstrapping of the site-likelihoods
+							obtained from fitting molecular or other data to a set of topologies,
+							in order to identify the subset of topologies that are consistent with the data
+						</aside>
 					</section>
 					<section data-transition="none">
 						<table style="font-size:15px">
@@ -208,13 +233,44 @@
 								<td>2,043 (11.31%)</td>
 							</tr>
 						</table>
-						<img src="images/054_topoStat.png" style='float: top; border:0; box-shadow: none' height=300>
+						<img src="images/054_topoStat.png" style='float: top; border:0; box-shadow: none' height=300><aside class="notes">
+							<ul>
+								<li>
+									Problem: if one test is performed at the 5% level and the corresponding null hypothesis is true,
+									there is only a 5% chance of incorrectly rejecting the null hypothesis. However, if 100 tests are conducted
+									and all corresponding null hypotheses are true, the expected number of incorrect rejections
+									(also known as false positives or Type I errors) is 5. If the tests are statistically independent from each other,
+									the probability of at least one incorrect rejection is 99.4%.
+								</li>
+								<li>
+									=> Multiple testing corrections adjust p-values derived from multiple statistical tests to correct for occurrence of false positives
+								</li>
+								<li>
+									Bonferroni "punishes" all input p-values equally, whereas Benjamini-Hochberg (as a way to control the False Discovery Rate) "punishes"
+									p-values accordingly to their ranking. If you have few tests, it should not make too much of a difference, but if you have many tests
+									(as for example when you test all 20,000 human protein coding genes or even larger sets), it will make a difference. In this case
+									Bonferroni will produce false negatives, in other words it will discard significant observations. Therefore usually I use Benjamini-Hochberg
+								</li>
+							</ul>
+						</aside>
 					</section>
 					<section data-transition="none">
 						<img src="images/055_pvalue_vs_dlogl.png" style='float: top; border:0; box-shadow: none' height=350>
+						<aside class="notes">
+							the mean of delta-log likelihood for accepted topologies is significant smaller than the of of rejected topologies<br>
+							(Mann-Whitney-Wilcoxon p-value < 2.2e-16)
+						</aside>
 					</section>
 					<section data-transition="none">
 						<img src="images/056_concord.png" style='float: top; border:0; box-shadow: none' height=400>
+						<aside class="notes">
+							calculate the gene and site concordance factors for the reference species tree of the core taxa using IQ-tree<br>
+							Let take the first node that splits human and chimpanzee as an example:
+							<strong>Gene concordance factor is 45.1</strong> means about 45% of the 18,000 gene trees contains this grouping, and
+							<strong>Site concordance factor is 38.8</strong> shows that about 40% of the sites informative for this branch support it
+							=> Overall, a large fraction of gene trees supports this reference tree topology
+							<i>However, there’s probably a lot of conflicting signal in some nodes...</i>
+						</aside>
 					</section>
 				</section>
 
@@ -230,14 +286,14 @@
 								<th>FAS calculation</th>
 							</tr>
 							<tr>
-								<td>20,995 proteins (*)</td>
-								<td>19 hrs</td>
+								<td>20,995 proteins</td>
+								<td>19 hrs (*)</td>
 								<td>67.5 hrs</td>
 								<td>21 hrs</td>
 							</tr>
 							<tr>
-								<td>Q8WZ42 (**)</td>
-								<td>54 hrs</td>
+								<td>Q8WZ42</td>
+								<td>54 hrs (**)</td>
 								<td>0.2 hrs</td>
 								<td>20.5 hrs</td>
 							</tr>
@@ -246,6 +302,14 @@
 							(*) <b>fdogs.run</b> using 64 CPUs on compute17 (2x AMD EPIC 7601 2.2Ghz, 32 cores)<br>
 							(**) <b>fdog.run</b> using 1 CPU on compute12 (intel i7-6700K 4.0Ghz)
 						</i></p>
+						<aside class="notes">
+							While benchmarking the runtime of fdog, I have split the whole fdog run into many parts
+							and tried to optimize each part independently.<br>
+							This is the runtime calculated using the current fdog strategy for the human protein set<br>
+							<strong>Note, for the human protein set, I need to exclude this Q8WZ42 protein out of the rest
+								due to its complex feature annotation (it is a Titin protein => Key component in the assembly and functioning of vertebrate muscles)
+							</strong>
+						</aside>
 					</section>
 					<section data-transition="none">
 						<img src="images/061_hmsruntime.png" style='float: top; border:0; box-shadow: none' height=250>
@@ -261,10 +325,13 @@
 							</li>
 						</ul>
 						<p style="font-size:10px"><i>Note: number of core taxa and search taxa are the same (78 QfO taxa)</i></p>
+						<aside class="notes">
+							log(runtime) due to the huge diverse in the runtime of the proteins
+						</aside>
 					</section>
 					<section data-transition="none">
 						<img src="images/062_hmsruntime_vsLen.png" style='float: top; border:0; box-shadow: none' width=650/>
-						<div class="caption" style="font-size:15px"><i>Pearson p-value < 2.2e-16<br>Correlation coefficient 0.61 for core compilation and 0.24 for ortholog search</i></div>
+						<div class="caption" style="font-size:15px"><i>Correlation coefficient 0.61 for core compilation and 0.24 for ortholog search<br>Pearson p-value < 2.2e-16</i></div>
 					</section>
 					<section data-transition="none">
 						<p style="color: #5e9ca0; font-size:20px">fdog.run<span style="color: #000000;"> VS</span> <span style="color: #ff0000;">fdogs.run</span>
@@ -294,16 +361,23 @@
 							<li style="font-size:15px" class="fragment roll-in">Eukaryota originated from within (or as sister to) the Asgard archaea</li>
 						</ol>
 						<aside class="notes">
-							A schematic representation of our understanding of the relationships between eukaryotes and archaea over the past 40 years. In a three-domains tree of life (part a), Archaea and Eukarya each represent a monophyletic group and share a unique common ancestor to the exclusion of Bacteria2,3. By contrast, a two-domain tree of life was proposed early on, and the topology of this tree has undergone several changes.When the Archaea was thought to consist of the Euryarchaeota and the Crenarchaeota phyla only (part b), several kinds of molecular evidence supported the close relationship of eukaryotes and Crenarchaeota6,7. In the early 2010s, eukaryotes were found to branch within, or as sister to, the Thaumarchaeota, Aigarchaeota, Crenarchaeota and Korarchaeota (TACK) superphylum25,28–32(part c). Phylogenomic analyses that included members of the Asgard superphylum strongly suggested that eukaryotes originated from within the Asgard archaea or that they represented a sister group to them47,52(part d). Bacteria and Eukarya are indicated in light purple and red, respectively, whereas green and blue represent archaeal lineages. Domain and superphylum rank-level names are bolded or italicized, respectively. Names of proposed phyla are in quotation marks. Note that the Diapherotrites, Parvarchaeota, Aenigmarchaeota, Nanoarchaeota and Nanohaloarchaeota (DPANN) lineage is represented as a monophyletic lineage, although this is a topic of debate
+							Try to resolve the debated position of the archaea in the species tree of life.<br>
+							A schematic representation of our understanding of the relationships between eukaryotes and archaea over the past 40 years.<br>
+							Here we have the well-known 3-domains tree of life in the figure a; and the others are the 2-domains tree of life,
+							where eukaryota was placed within the archaea.<br>
 						</aside>
 					</section>
 					<section data-transition="none">
 						<img src="images/072_tree_reconstruction.jpg" style='float: top; border:0; box-shadow: none' height=400/>
+						<aside class="notes">
+							Starting from 11 asgardarcheaota => got 343 core ortholog groups => expanded in 732 archaea, 48 eukaryota and 23 bacteria
+							=> subselected 68 representatvie taxa that cover the diversity of archaea => reconstructed the species tree
+						</aside>
 					</section>
 					<section data-transition="none">
 						<img src="images/073_phyloprofile.png" style='float: top; border:0; box-shadow: none' height=180/>
 						<ul>
-							<li style="font-size:15px" class="fragment roll-in">48 core genes (FAS >= 0.75, present in at least 50% taxa of each superkingdom)</li>
+							<li style="font-size:15px">48 core genes (FAS >= 0.75, present in at least 50% taxa of each superkingdom)</li>
 							<li style="font-size:15px" class="fragment roll-in">Super-alignment of 139 sequences, 13,060 aa in length</li>
 							<li style="font-size:15px" class="fragment roll-in">Tree reconstruction using IQ-TREE</li>
 							<ul style="list-style-type: circle;" class="fragment roll-in">
@@ -318,10 +392,26 @@
 					</section>
 					<section data-transition="none">
 						<p><img src="images/074_asgard_tree.jpg" style='float: top; border:0; box-shadow: none' height=600/></p>
+						<aside class="notes">
+							This is the ML tree we got from IQ tree. The bootstrap support values are shown in the internal branches,
+							where red are branches that have the bootstrap values between 50 and 99; blue are less then 50 and the others are 100<br>
+							Overall, we had a very well resolved result for the archaea clade. But some of the eukaryota or bacteria still have a
+							wrong positions, such as HUMAN is placed as sister to chimp and gorrila. But, since we start from the asgard core genes,
+							it is difficult to resolve such a far away nodes.
+						</aside>
 					</section>
 					<section data-transition="none">
 						<p><img src="images/071_hypotheses.png" style='float: right; border:0; box-shadow: none' height=300/ class="fragment roll-in"></p>
 						<p><img src="images/075_asgard_tree_schematic.jpg" style='float: left; border:0; box-shadow: none' height=300/></p>
+						<aside class="notes">
+							To better compare with the different species tree of life hypotheses, I re-draw the previous tree with this schematic tree.<br>
+							Clearly,
+							<ul>
+								<li>it supports the three-domains tree of life</li>
+								<li>Asgard are polyphyletic (same as Williams et al. 2020) and are sister clade of the other archaea</li>
+								<li>Euryarchaeota are monophyletic (while Williams et al. 2020 and Raymann et al. 2015 showed polyphyletic => used bayesian tree reconstruction)</li>
+							</ul>
+						</aside>
 					</section>
 				</section>
 				<!-- SLIDE 8 links-->
