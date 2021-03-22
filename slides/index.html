@@ -65,7 +65,7 @@
 							<li style="font-size:20px; text-align:left">...</li>
 						</p>
 						<aside class="notes">
-							Orthologs can be used for example:<br>
+							Why orthologs are intersting? Orthologs can be used for example:<br>
 							In Phylogenetic profiles for estimating the evolutionary age of genes of interest<br>
 							For gene tree reconstruction and then tree reconciliation for identifying different events like HGT, gene loss, duplication, speciation<br>
 							Or, functional annotations transfer
@@ -140,9 +140,10 @@
 						<aside class="notes">
 							First step of fdog is the core compilation. The profile HMM of the seed sequence will be used to searched for similar sequences
 							in a tree of the core taxa <strong>iteratively</strong> from the close relative to distant relatives of the reference species.
-							The taxon rank can be defined by the user (e.g. only from genus to kingdom).<br>
-							Then, the candidate that maximizes the similarity in both the sequence and the feature architecture will be added in to the core group.<br>
-							This step will be repeated until the number of the core orthologs exceeded a pre-defined value (by default is 5)
+							Then, the candidate sequences of each taxon that maximizes the similarity of both the sequence and the feature architecture will be added in to the core group.<br>
+							This step will be repeated until the number of the core orthologs exceeded a pre-defined value (by default is 5 orthologs + 1 seed protein)<br>
+							Users can control the diversity of the core taxa by identifying the
+							minimal and maximal taxonomic distance to the reference species (by default: from genus to kingdom).<br>
 						</aside>
 					</section>
 					<section data-transition="none">
@@ -187,8 +188,8 @@
 							We used the Orthology Benchmarking Service to compare fdog with other tools.<br>
 							This is a public service for assessing the performance of different ortholog prediction approaches based on the evaluations of 4 different categories.<br>
 							Here we focused only on the first test, the species tree discordance test, and the last 2, the GO and EC test.<br>
-							<strong>Species tree discordance test</strong>: test for the congruence of inferred orthologs with a trusted reference tree<br>
-							<strong>Gene Ontology test & EC number test</strong>: evaluated  orthology  in  terms of functional similarity by comparing the GO term and EC numbers between the query and ortholog sequences<br>
+							<strong>Species tree discordance test</strong>: test for the congruence of the inferred ortholog gene trees with a trusted reference tree<br>
+							<strong>Gene Ontology test & EC number test</strong>: evaluate  orthology  in  terms of functional similarity by comparing the GO term and EC numbers between the query and ortholog sequences<br>
 						</aside>
 					</section>
 					<section data-transition="none">
@@ -197,7 +198,7 @@
 							<li style="font-size:15px">Compared using Quest for Orthologs - Challenge 6</li>
 						</ul>
 						<aside class="notes">
-							This is the number of the pairwise orthologs taken into account for the comparison from different approaches.<br>
+							This figure shows the number of the pairwise orthologs taken into account for the comparison from different approaches.<br>
 							For fdog, we take the whole prediction result without any post filtering, as well as filtered the data by the forward, backward and the mean fas score<br>
 							in which only the pairwises that have the corresponding FAS score not less than 0.75 were considered.<br>
 							We then compared the 4 fdog ortholog sets with InParanoid and OMA-Pairs.
@@ -208,9 +209,23 @@
 						<img src="images/046_go.jpg" style='float: right; border:0; box-shadow: none' height=200/ class="fragment roll-in">
 						<img src="images/047_tree.jpg" style='float: bottom; border:0; box-shadow: none' height=200/ class="fragment roll-in">
 						<aside class="notes">
-							<strong>EC conservation test</strong>: x-axis is the recall and y-axis is the precision of the evaluation.
+							And here is the result from the benchmarking service.<br>
+							First, the <strong>EC conservation test</strong>: x-axis is the recall and y-axis is the precision of the evaluation.
 							For the precision they used the average schlicker scores - a semantic similarity score for comparing sets of annotations such as GO terms or EC numbers<br>
-							<strong>Tree discordance test</strong>: Robinson-foulds distance: the sum of partitions of data that is implied by one tree but not by the other.
+							This result is in-line with the previous figure, fdog predicted less ortholog pairs than InParanoid,
+							but it has a higher average schlicker score than InParanoid. OMA is the best in this test for the precision,
+							however, when we applied FAS filter on fdog, especially by the mean FAS score, we could gain almost the same precision as OMA pairs.<br>
+							For the <strong>GO conservation test</strong>, fdog performed slightly worse than the other tools.
+							But after filtering out the pairwises that have low FAS scores, we reached the highest schlicker score.<br>
+							These 2 tests shows clearly the trade-off between the recall and the precision of the prediction method.<br>
+							The last test is the <strong>Tree discordance test</strong>: here the precision is defined by the Robinson-foulds distance:
+							which is the sum of partitions of data that is implied by one tree but not by the other. The lower the distance, the better.
+							Here fdog without fas filter has the highest recall, but also the lowest precision.
+							However, the RF-Distance of fdog is not much worse than the one of OMA pairs, although OMA-pairs has
+							the lowest number of complete tree sampling. With FAS filter, we could improve the RF-distance for fdog.<br>
+							So, in overall I would say, fdog performed comparatively good with the other two tools.
+							And depend on our needs, we can further filter the ortholog assessment from fdog to improve the specificity
+							without losing much the sensitivity in comparison to OMA-pairs approach.
 						</aside>
 					</section>
 				</section>
@@ -223,7 +238,7 @@
 						<p>... in reflecting the species relationship</p>
 						<aside class="notes">
 							Another aspect we want to check is to see how well the core ortholog groups are in term of explaining the species relationship of the core taxa.
-							This figure shows the schematic reference species tree of the 78 QfO taxa.
+							This figure shows the schematic reference tree of the 78 QfO taxa.
 						</aside>
 					</section>
 					<section data-transition="none">
@@ -240,7 +255,7 @@
 						</ul>
 						</p>
 						<aside class="notes">
-							For this, we compared the topology of gene trees created from the proteins of each core group with the (pruned) reference species tree.<br>
+							For this, we compared the topology of gene trees created from the proteins of each core group with the (pruned) reference species tree before.<br>
 							This is an example of the topology test output from iq-tree. Here we focused on the p-value of the AU test. If the p-value less than 0.05,
 							the topology of the gene tree is significantly different to the one of the species tree.<br>
 							We had in total 18,067 tests for all the core groups that have more than 3 sequences.<br>
@@ -274,10 +289,10 @@
 						</table>
 						<img src="images/054_topoStat.png" style='float: top; border:0; box-shadow: none' height=300>
 						<aside class="notes">
-							This is the number of accepted (not significantly different) and rejected (significantly different) gene trees.<br>
+							This is the number of the accepted (not significantly different) and rejected (significantly different) gene trees.<br>
 							Before correction for multiple testing problem, 65% of the gene trees was accepted. After corrected using BH correction and Bonferroni correction,
 							the number of accepted trees increased up to 89%.<br>
-							Here we need to applied the multiple testing correction to reduce the false positive rate caused by the high number of multiple statistical tests.<br>
+							Here we need to applied the multiple testing correction to reduce the false positive rate caused by the running of multiple statistical inference at the same time.<br>
 							<ul>
 								<li>
 									Problem: if one test is performed at the 5% level and the corresponding null hypothesis is true,
@@ -292,8 +307,8 @@
 								<li>
 									Bonferroni "punishes" all input p-values equally, whereas Benjamini-Hochberg (as a way to control the False Discovery Rate) "punishes"
 									p-values accordingly to their ranking. If you have few tests, it should not make too much of a difference, but if you have many tests
-									(as for example when you test all 20,000 human protein coding genes or even larger sets), it will make a difference. In this case
-									Bonferroni will produce false negatives, in other words it will discard significant observations. Therefore usually I use Benjamini-Hochberg
+									(as in this case, 18,000 human proteins), it will make a difference. In this case
+									Bonferroni will produce false negatives (more accepted trees, or in other words it will discard significant observations). Therefore Benjamini-Hochberg is better.
 								</li>
 							</ul>
 						</aside>
@@ -313,7 +328,8 @@
 							Here, <strong>the gene concordance factor is 45.1</strong> means about 45% of the 18,000 gene trees contains this grouping, and<br>
 							<strong>The site concordance factor is 38.8</strong> shows that about 40% of the sites informative for this branch support it.<br>
 							=> Overall, a large fraction of gene trees supports this reference tree topology<br>
-							<i>However, there’s probably a lot of conflicting signal in some nodes...</i>
+							<i>However, there’s probably some conflicting signal in some nodes...</i><br>
+							This is a problem with the big data set (in this case, 18.000 gene trees), where we could have a low variance for this branch.
 						</aside>
 					</section>
 				</section>
@@ -347,11 +363,11 @@
 							(**) <b>fdog.run</b> using 1 CPU on compute12 (intel i7-6700K 4.0Ghz)
 						</i></p>
 						<aside class="notes">
-							How fast is fdog?
+							Another question we have asked was: How fast is fdog?
 							While benchmarking the runtime of fdog, we have split the whole fdog run into many parts
 							and tried to optimize each part independently.<br>
 							This is the runtime calculated using the current fdog strategy for the human protein set.<br>
-							<strong>Note, for the human protein set, I need to exclude this Q8WZ42 protein out of the rest
+							<strong>Note, for the human protein set, I have excluded this Q8WZ42 protein out of the rest
 								due to its complex feature annotation (it is a Titin protein => Key component in the assembly and functioning of vertebrate muscles)
 							</strong>
 						</aside>
@@ -391,7 +407,7 @@
 						</p>
 						<div class="fragment roll-in">
 							<img src="images/063_fdog_vs_fdogs.png" style='float: top; border:0; box-shadow: none' width=550/>
-							<p style="font-size:10px"><i>Runtime of 6 randomly selected proteins using 4 CPUs</i></p>
+							<p style="font-size:10px"><i>Runtime of 6 randomly selected human proteins using 4 CPUs</i></p>
 						</div>
 						<aside class="notes">
 							As being shown before, we have 2 functions to run fdog: fdog.run and fdogs.run. So which one is better?<br>
