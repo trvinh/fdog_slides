@@ -96,7 +96,7 @@
 							<img src="images/021_hamstr.gif" style='float: top; border:0; box-shadow: none' height=120/>
 						</p>
 						<aside class="notes">
-							Bases on bidirectional search<br>
+							Hamstr is one of the apporoaches that are bases on bidirectional search<br>
 						</aside>
 					</section>
 					<section data-transition="none">
@@ -106,7 +106,11 @@
 						</p>
 						<img src="images/022_hamstr_workflow.png" style='float: top; border:0; box-shadow: none' height=350/>
 						<aside class="notes">
-							some note here
+							Starting from a profile HMM of a set of core orthologs, hamstr search for candidate sequences in protein set G<br>
+							Each candidate will then be searched agains the reference proteome F using Blast<br>
+							If the reciprocal criterion fulfilled, that candidate protein will be added into the group as a new ortholog.<br>
+							So, for hamstr, we need to provide the core ortholog group as an input. The core compilation can be done
+							using other tools like OMA or OrthoMCL
 						</aside>
 					</section>
 					<section data-transition="none">
@@ -121,6 +125,10 @@
 						<p>
 							<img src="images/023_dog.gif" style='float: top; border:0; box-shadow: none' height=180/>
 						<br>fDOG</p>
+						<aside class="notes">
+							Then, we had an idea to combine both the core compilation and the ortholog search into hamstr.
+							At the beginning, we call this new tool as hamstr-oneseq. Then later, we renamed it into fdog.
+						</aside>
 					</section>
 				</section>
 
@@ -129,12 +137,25 @@
 					<h5 style="color: white; background-color: #559951"><strong>How fDOG works</strong></h5>
 					<section data-transition="none">
 						<img src="images/031_fdog_workflow.jpg" style='float: top; border:0; box-shadow: none' height=550/>
+						<aside class="notes">
+							First step of fdog is the core compilation. The profile HMM of the seed sequence will be used to searched for similar sequences
+							in a tree of the core taxa <strong>iteratively</strong> from the close relative to distant relatives of the reference species.
+							The taxon rank can be defined by the user (e.g. only from genus to kingdom).<br>
+							Then, the candidate that maximizes the similarity in both the sequence and the feature architecture will be added in to the core group.<br>
+							This step will be repeated until the number of the core orthologs exceeded a pre-defined value (by default is 5)
+						</aside>
 					</section>
 					<section data-transition="none">
 						<img src="images/032_fdog_workflow.jpg" style='float: top; border:0; box-shadow: none' height=550/>
+						<aside class="notes">
+							After having the core group, the normal hamstr search will be applied to search for ortholog in a set of search taxa
+						</aside>
 					</section>
 					<section data-transition="none">
 						<img src="images/033_fdog_workflow.jpg" style='float: top; border:0; box-shadow: none' height=550/>
+						<aside class="notes">
+							Lastly, fdog calculates the fas scores for all orthologs against the seed protein. The final output can be visualized using PhyloProfile for further study.
+						</aside>
 					</section>
 				</section>
 
@@ -151,6 +172,11 @@
 								<li style="font-size:20px">20,996 human proteins as seed sequences</li>
 							</ul>
 						</p>
+						<aside class="notes">
+							We have done a benchmark to see how the performance of fdog in comparison to other ortholog prediction tools.<br>
+							For this benchmark we used 78 taxa from the 2018 QfO data. In which Human was used as the reference species,
+							and we searched for ortholog of about 21.000 human proteins in the qfo taxa.
+						</aside>
 					</section>
 					<section data-transition="none">
 						<p>Benchmark method</p>
@@ -158,6 +184,9 @@
 						<img src="images/043_benchmark_service.png" style='float: top; border:0; box-shadow: none' height=350/><br>
 						</p>
 						<aside class="notes">
+							We used the Orthology Benchmarking Service to compare fdog with other tools.<br>
+							This is a public service for assessing the performance of different ortholog prediction approaches based on the evaluations of 4 different categories.<br>
+							Here we focused only on the first test, the species tree discordance test, and the last 2, the GO and EC test.<br>
 							<strong>Species tree discordance test</strong>: test for the congruence of inferred orthologs with a trusted reference tree<br>
 							<strong>Gene Ontology test & EC number test</strong>: evaluated  orthology  in  terms of functional similarity by comparing the GO term and EC numbers between the query and ortholog sequences<br>
 						</aside>
@@ -167,6 +196,12 @@
 						<ul>
 							<li style="font-size:15px">Compared using Quest for Orthologs - Challenge 6</li>
 						</ul>
+						<aside class="notes">
+							This is the number of the pairwise orthologs taken into account for the comparison from different approaches.<br>
+							For fdog, we take the whole prediction result without any post filtering, as well as filtered the data by the forward, backward and the mean fas score<br>
+							in which only the pairwises that have the corresponding FAS score not less than 0.75 were considered.<br>
+							We then compared the 4 fdog ortholog sets with InParanoid and OMA-Pairs.
+						</aside>
 					</section>
 					<section data-transition="none">
 						<img src="images/045_ec.jpg" style='float: left; border:0; box-shadow: none' height=200/>
@@ -178,10 +213,6 @@
 							<strong>Tree discordance test</strong>: Robinson-foulds distance: the sum of partitions of data that is implied by one tree but not by the other.
 						</aside>
 					</section>
-
-					<aside class="notes">
-						Oh hey, these are some notes. They'll be hidden in your presentation, but you can see them if you open the speaker notes window (hit »S« on your keyboard).
-					</aside>
 				</section>
 
 				<!-- SLIDE 5 core groups -->
@@ -190,6 +221,10 @@
 					<section data-transition="none">
 						<img src="images/051_qfotree.png" style='float: top; border:0; box-shadow: none' height=350/>
 						<p>... in reflecting the species relationship</p>
+						<aside class="notes">
+							Another aspect we want to check is to see how well the core ortholog groups are in term of explaining the species relationship of the core taxa.
+							This figure shows the schematic reference species tree of the 78 QfO taxa.
+						</aside>
 					</section>
 					<section data-transition="none">
 						<ul>
@@ -205,7 +240,11 @@
 						</ul>
 						</p>
 						<aside class="notes">
-							AU-test: Approximately Unbiased test - uses multi-scale bootstrapping of the site-likelihoods
+							For this, we compared the topology of gene trees created from the proteins of each core group with the (pruned) reference species tree.<br>
+							This is an example of the topology test output from iq-tree. Here we focused on the p-value of the AU test. If the p-value less than 0.05,
+							the topology of the gene tree is significantly different to the one of the species tree.<br>
+							We had in total 18,067 tests for all the core groups that have more than 3 sequences.<br>
+							<strong>AU-test</strong>: Approximately Unbiased test - uses multi-scale bootstrapping of the site-likelihoods
 							obtained from fitting molecular or other data to a set of topologies,
 							in order to identify the subset of topologies that are consistent with the data
 						</aside>
@@ -233,7 +272,12 @@
 								<td>2,043 (11.31%)</td>
 							</tr>
 						</table>
-						<img src="images/054_topoStat.png" style='float: top; border:0; box-shadow: none' height=300><aside class="notes">
+						<img src="images/054_topoStat.png" style='float: top; border:0; box-shadow: none' height=300>
+						<aside class="notes">
+							This is the number of accepted (not significantly different) and rejected (significantly different) gene trees.<br>
+							Before correction for multiple testing problem, 65% of the gene trees was accepted. After corrected using BH correction and Bonferroni correction,
+							the number of accepted trees increased up to 89%.<br>
+							Here we need to applied the multiple testing correction to reduce the false positive rate caused by the high number of multiple statistical tests.<br>
 							<ul>
 								<li>
 									Problem: if one test is performed at the 5% level and the corresponding null hypothesis is true,
@@ -257,18 +301,18 @@
 					<section data-transition="none">
 						<img src="images/055_pvalue_vs_dlogl.png" style='float: top; border:0; box-shadow: none' height=350>
 						<aside class="notes">
-							the mean of delta-log likelihood for accepted topologies is significant smaller than the of of rejected topologies<br>
+							the mean of delta-log likelihood for accepted topologies is significant smaller than the one of rejected topologies<br>
 							(Mann-Whitney-Wilcoxon p-value < 2.2e-16)
 						</aside>
 					</section>
 					<section data-transition="none">
 						<img src="images/056_concord.png" style='float: top; border:0; box-shadow: none' height=400>
 						<aside class="notes">
-							calculate the gene and site concordance factors for the reference species tree of the core taxa using IQ-tree<br>
-							Let take the first node that splits human and chimpanzee as an example:
-							<strong>Gene concordance factor is 45.1</strong> means about 45% of the 18,000 gene trees contains this grouping, and
-							<strong>Site concordance factor is 38.8</strong> shows that about 40% of the sites informative for this branch support it
-							=> Overall, a large fraction of gene trees supports this reference tree topology
+							We also calculated the gene and site concordance factors for the reference species tree of the core taxa using IQ-tree<br>
+							What are these factors? Let take the first node that splits human and chimpanzee as an example:<br>
+							Here, <strong>the gene concordance factor is 45.1</strong> means about 45% of the 18,000 gene trees contains this grouping, and<br>
+							<strong>The site concordance factor is 38.8</strong> shows that about 40% of the sites informative for this branch support it.<br>
+							=> Overall, a large fraction of gene trees supports this reference tree topology<br>
 							<i>However, there’s probably a lot of conflicting signal in some nodes...</i>
 						</aside>
 					</section>
@@ -303,9 +347,10 @@
 							(**) <b>fdog.run</b> using 1 CPU on compute12 (intel i7-6700K 4.0Ghz)
 						</i></p>
 						<aside class="notes">
-							While benchmarking the runtime of fdog, I have split the whole fdog run into many parts
+							How fast is fdog?
+							While benchmarking the runtime of fdog, we have split the whole fdog run into many parts
 							and tried to optimize each part independently.<br>
-							This is the runtime calculated using the current fdog strategy for the human protein set<br>
+							This is the runtime calculated using the current fdog strategy for the human protein set.<br>
 							<strong>Note, for the human protein set, I need to exclude this Q8WZ42 protein out of the rest
 								due to its complex feature annotation (it is a Titin protein => Key component in the assembly and functioning of vertebrate muscles)
 							</strong>
@@ -332,6 +377,9 @@
 					<section data-transition="none">
 						<img src="images/062_hmsruntime_vsLen.png" style='float: top; border:0; box-shadow: none' width=650/>
 						<div class="caption" style="font-size:15px"><i>Correlation coefficient 0.61 for core compilation and 0.24 for ortholog search<br>Pearson p-value < 2.2e-16</i></div>
+						<aside class="notes">
+							The runtime is correlated with the sequence length of the seed protein. The correlation coefficient if 0.6 for the core compilation and 0.24 for the ortholog search.
+						</aside>
 					</section>
 					<section data-transition="none">
 						<p style="color: #5e9ca0; font-size:20px">fdog.run<span style="color: #000000;"> VS</span> <span style="color: #ff0000;">fdogs.run</span>
@@ -345,6 +393,13 @@
 							<img src="images/063_fdog_vs_fdogs.png" style='float: top; border:0; box-shadow: none' width=550/>
 							<p style="font-size:10px"><i>Runtime of 6 randomly selected proteins using 4 CPUs</i></p>
 						</div>
+						<aside class="notes">
+							As being shown before, we have 2 functions to run fdog: fdog.run and fdogs.run. So which one is better?<br>
+							Here we can see clearly that fdogs.run can reduce significantly the time for the core compilation.
+							It is because it will do the core compilation for multiple seed proteins in parallel.<br>
+							The ortholog search does has much benefit from this, because it depends on the number of the search taxa,
+							not on the number of the seed proteins. It only reduced some time for the I/O like reading adn writing files.
+						</aside>
 					</section>
 				</section>
 
@@ -361,8 +416,8 @@
 							<li style="font-size:15px" class="fragment roll-in">Eukaryota originated from within (or as sister to) the Asgard archaea</li>
 						</ol>
 						<aside class="notes">
-							Try to resolve the debated position of the archaea in the species tree of life.<br>
-							A schematic representation of our understanding of the relationships between eukaryotes and archaea over the past 40 years.<br>
+							As an use-case, we try to resolve the debated position of the archaea in the species tree of life using the orthologs predicted by fdog.<br>
+							This is a schematic representation of our understanding of the relationships between eukaryotes and archaea over the past 40 years.<br>
 							Here we have the well-known 3-domains tree of life in the figure a; and the others are the 2-domains tree of life,
 							where eukaryota was placed within the archaea.<br>
 						</aside>
@@ -387,7 +442,12 @@
 							</ul>
 						</ul>
 						<aside class="notes">
-							LG substitution with FreeRate model
+							For the tree reconstruction, we identified 48 core genes that have FAS >= 0.75 & present in at least 50% of the taxa in each supterkingdom
+							(the one in the red box on this profile plot).<br>
+							From that, we got a super-alignment for the 139 taxa with the lenght of about 13,000 amino acids.<br>
+							Then, we used IQ-tree to reconstruct the tree using these parameters:<br>
+							...<br>
+							<i>LG substitution with FreeRate model</i>
 						</aside>
 					</section>
 					<section data-transition="none">
@@ -395,7 +455,8 @@
 						<aside class="notes">
 							This is the ML tree we got from IQ tree. The bootstrap support values are shown in the internal branches,
 							where red are branches that have the bootstrap values between 50 and 99; blue are less then 50 and the others are 100<br>
-							Overall, we had a very well resolved result for the archaea clade. But some of the eukaryota or bacteria still have a
+							The tree was rooted using bacteria as the outgroup.<br>
+							Overall, we had a very well resolved archaea clade. But some of the eukaryota or bacteria species still have a
 							wrong positions, such as HUMAN is placed as sister to chimp and gorrila. But, since we start from the asgard core genes,
 							it is difficult to resolve such a far away nodes.
 						</aside>
@@ -407,9 +468,10 @@
 							To better compare with the different species tree of life hypotheses, I re-draw the previous tree with this schematic tree.<br>
 							Clearly,
 							<ul>
-								<li>it supports the three-domains tree of life</li>
+								<li>it supports the three-domains tree of life (Williams et al. 2020 and Raymann et al. 2015 => 2 domains tree of life)</li>
 								<li>Asgard are polyphyletic (same as Williams et al. 2020) and are sister clade of the other archaea</li>
 								<li>Euryarchaeota are monophyletic (while Williams et al. 2020 and Raymann et al. 2015 showed polyphyletic => used bayesian tree reconstruction)</li>
+								<li>Korarchaeota placed within TACK superphylum (Raymann et al. 2015: outside of TACK, as sister of Euryarchaeota)</li>
 							</ul>
 						</aside>
 					</section>
@@ -418,9 +480,9 @@
 				<section>
 					<h5 style="color: white; background-color: #559951"><strong></strong></h5>
 					<section>
-						<img src="images/081_thanks.gif" style='float: top; border:0' height="250"/>
+						<img src="images/081_thanks.gif" style='float: top; border:0; box-shadow: none' height="250"/>
 						<br>
-						<img src="images/082_qrcode.png" style='float: top; border:0' height="100"/>
+						<img src="images/082_qrcode.png" style='float: top; border:0; box-shadow: none' height="100"/>
 					</section>
 				</section>
 
